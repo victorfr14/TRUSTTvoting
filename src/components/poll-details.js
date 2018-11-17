@@ -175,7 +175,7 @@ export default class PollDetails extends React.Component {
 								}square`}></span>&nbsp;&nbsp; {option}
 						</div>
 						<div className="col-xs-3 text-right">
-							{poll.votes[i]} vote{poll.votes[i]>1&&'s'} - {
+							{poll.votes[i]} voto{poll.votes[i]>1&&'s'} - {
 								parseInt((poll.votes[i]/(poll.totalVotes||1))*100)
 							} %
 						</div>
