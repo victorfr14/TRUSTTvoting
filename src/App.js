@@ -159,7 +159,7 @@ class App extends Component {
           <ul className="nav nav-tabs">
             <li className={getActiveClassName(props, "")}>
               <NavLink to="/">
-                <span className='fa fa-poll'></span>&nbsp;&nbsp;All Polls
+                <span className='fa fa-poll'></span>&nbsp;&nbsp;Todas as Votações
               </NavLink></li>
             <li className={getActiveClassName(props, "new")}>
               <NavLink to="/new">
