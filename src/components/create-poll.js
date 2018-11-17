@@ -11,13 +11,13 @@ export default class extends React.Component {
 				<form className="create-poll-form" onSubmit={e => {
 					e.preventDefault()
 					if (!(window.App && window.App.state.contract && window.App.createPoll)) 
-						return window.alertify.error('Contract not available yet, did you connect to MetaMask?')
+						return window.alertify.error('Contrato ainda não disponível, você conectou com o MetaMask?')
 
 					window.App.createPoll()
 				}}>
 					{/* <h3>Create a New Poll</h3>*/ }
 					<br />
-					<span style={{fontSize: '2rem'}}>Poll Ends On: &nbsp;&nbsp;</span> 
+					<span style={{fontSize: '2rem'}}>Votação acaba em: &nbsp;&nbsp;</span> 
 
 					<DateTimePicker 
 						required 
@@ -37,18 +37,18 @@ export default class extends React.Component {
 							onChange({tempTitle: e.target.value})
 						}}
 						className="form-control" maxLength="32" required
-						placeholder="Title" autoFocus />
+						placeholder="Título" autoFocus />
 					<br />
 					<textarea value={state.tempDescription} 
 						onChange={e => {
 							onChange({tempDescription: e.target.value})
 						}}
 						required style={{minHeight: '100px'}} 
-						className="form-control" placeholder="Description"></textarea>
+						className="form-control" placeholder="Descrição"></textarea>
 					
 					<br />
 					<br />
-					<div style={{fontSize:'2rem'}}>Options: </div>
+					<div style={{fontSize:'2rem'}}>Opções: </div>
 					<br />
 					{
 						state.tempOptions.map((option, i) => 
@@ -65,7 +65,7 @@ export default class extends React.Component {
 								}}
 								className="form-control" 
 								type='text' 
-								placeholder={`Option ${i+1}`}
+								placeholder={`Opção ${i+1}`}
 								autoFocus={i+1 === state.tempOptions.length && i>1} 
 								 />
 						)
@@ -86,10 +86,10 @@ export default class extends React.Component {
 							style={{
 							textDecoration: 'none',
 							cursor: 'pointer'
-						}}><i className="fa fa-plus-circle"></i> Add an option</a>
+						}}><i className="fa fa-plus-circle"></i> Adicionar uma opção</a>
 					</div>}
 					<br />
-					<button className="btn btn-lg btn-primary">SUBMIT</button>
+					<button className="btn btn-lg btn-primary">Confirmar</button>
 				</form>
 			</div>
 		)

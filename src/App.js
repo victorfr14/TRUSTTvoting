@@ -54,7 +54,7 @@ class App extends Component {
     let { state } = this
     let { contract } = state
     
-    if (!contract) return alertify.error('Contract not available yet, did you connect to MetaMask?')
+    if (!contract) return alertify.error('Contrato ainda não disponível, você conectou com o MetaMask?')
 
     let hash
     let cb = (err, txHash) => {
@@ -68,9 +68,9 @@ class App extends Component {
       options = state.tempOptions,
       endsOn = parseInt(state.tempEndsOn.getTime()/1e3)
 
-    if (!title.trim()) return window.alertify.error('Invalid title!')
+    if (!title.trim()) return window.alertify.error('Título inválido!')
 
-    if (!description.trim()) return window.alertify.error('Invalid description!')
+    if (!description.trim()) return window.alertify.error('Descrição inválida!')
 
     let invalidOptionIndex;
 
@@ -81,7 +81,7 @@ class App extends Component {
       }
       return false
     })) {
-      return alertify.error(`Invalid option number ${(invalidOptionIndex+1)}`)
+      return alertify.error(`Numero de opções inválidas ${(invalidOptionIndex+1)}`)
     }
 
     title = window.web3.utils.toHex(title)
@@ -99,7 +99,7 @@ class App extends Component {
       }
 
       if (receipt.status === true) {
-        window.alertify.success('Transaction confirmed!')
+        window.alertify.success('Transação confirmada!')
         console.log(receipt)
         window.location.href = '/polls/'+receipt.events.newPoll.returnValues.pollIndex
       }
@@ -121,10 +121,10 @@ class App extends Component {
         try {
           await window.ethereum.enable()
         } catch (e) {
-          return alertify.error('MetaMask connect request rejected!')
+          return alertify.error('Conexão MetaMask request rejeitada!')
         }
       } else if (typeof window.web3 === 'undefined') {
-        return alertify.error('Please install MetaMask to use this DAPP!')      
+        return alertify.error('Por favor instale o MetaMask para utilizar este Dapp!')      
       }
 
       window.web3 = new window.Web3(window.web3.currentProvider)

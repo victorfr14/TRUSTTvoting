@@ -10,7 +10,7 @@ const PollList = ({state, onChange}) => (
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Title</th>
+					<th>Título</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -21,7 +21,7 @@ const PollList = ({state, onChange}) => (
 					</tr>
 				))}
 			</tbody>
-		</table> : state.arePollsLoaded && <h3>Nothing here yet...</h3>}
+		</table> : state.arePollsLoaded && <h3>Nada por aqui ainda...</h3>}
 
 	</div>
 )

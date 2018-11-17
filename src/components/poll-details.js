@@ -49,8 +49,8 @@ export default class PollDetails extends React.Component {
 	refreshVotedFor() {
 		return new Promise(async (resolve, reject) => {
 			let { contract } = this.props.state
-			if (!this.state.isPollLoaded) return reject('Poll not loaded yet!')
-			if (!contract) return reject('Contract not loaded yet!')
+			if (!this.state.isPollLoaded) return reject('Votação ainda não carregada!')
+			if (!contract) return reject('Contrato ainda não carregado!')
 
 			contract.methods.votedFor(await window.web3.eth.getCoinbase(), 
 				this.state.poll.pollIndex).call().then(res => {
@@ -71,13 +71,13 @@ export default class PollDetails extends React.Component {
 
 		if (Date.now()/1e3>Number(this.state.poll.endsOnUnix)) {
 			this.refreshPoll()
-			return window.alertify.error("Poll has ended!")
+			return window.alertify.error("A votação acabou!")
 		}
 
 		try {
 			let votedFor = await this.refreshVotedFor()
 			if (votedFor > 0) 
-				return window.alertify.error("Already voted for this poll!")
+				return window.alertify.error("Você já votou nessa eleição!")
 		} catch (e) { console.error(e) }
 
 		let hash
@@ -105,7 +105,7 @@ export default class PollDetails extends React.Component {
 					let {currentTx} = window.App.state
 					currentTx.status = 'confirmed'
 					onChange({currentTx}, () => this.refreshPoll())
-					window.alertify.success('Transaction confirmed!')
+					window.alertify.success('Transação confirmada!')
 				}
 
 			})
@@ -142,7 +142,7 @@ export default class PollDetails extends React.Component {
 				<h2>
 					<NavLink to="/">
 						<span
-							title="Back to poll list" 
+							title="Voltar para lista de votação" 
 							className="fa fa-arrow-circle-left go-back"></span>
 					</NavLink>
 					{poll.title}
@@ -150,11 +150,11 @@ export default class PollDetails extends React.Component {
 
 				<p>{poll.description}</p>
 				<hr />
-					Has Ended: <strong>{Date.now()/1e3 > Number(poll.endsOnUnix)? 
-						"YES" : "NO"}</strong><br />
-					Ends On: <strong>{poll.endsOn}</strong><br />
-					Total Votes: <strong>{poll.totalVotes}</strong><br />
-					Creator Address: <code>{poll.creatorAddress}</code>
+					ACABOU: <strong>{Date.now()/1e3 > Number(poll.endsOnUnix)? 
+						"SIM" : "NÃO"}</strong><br />
+					Acaba em: <strong>{poll.endsOn}</strong><br />
+					Total de Votos: <strong>{poll.totalVotes}</strong><br />
+					Endereço do Criador: <code>{poll.creatorAddress}</code>
 				<hr />
 				{
 					poll.options.map((option,i) => 
