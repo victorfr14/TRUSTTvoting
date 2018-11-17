@@ -151,8 +151,8 @@ class App extends Component {
     let {props, state} = this
     return (
       <div className="App container">
-        <h2>The TRUSTT DAPP</h2>
-        <p>Voting solution on Ethereum Blockchain</p>
+        <h2> TRUSTT </h2>
+        <p>Solução de Votação em Blockchain</p>
 
         {
         !props.location.pathname.startsWith('/polls/')?<div>
@@ -163,7 +163,7 @@ class App extends Component {
               </NavLink></li>
             <li className={getActiveClassName(props, "new")}>
               <NavLink to="/new">
-                <span className='fa fa-pen-fancy'></span>&nbsp;&nbsp;New Poll
+                <span className='fa fa-pen-fancy'></span>&nbsp;&nbsp;Nova Votação
               </NavLink></li>
           </ul>
 
