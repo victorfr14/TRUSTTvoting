@@ -54,7 +54,7 @@ class App extends Component {
     let { state } = this
     let { contract } = state
     
-    if (!contract) return alertify.error('Contrato ainda não disponível, você conectou com o MetaMask?')
+    if (!contract) return alertify.error('Contrato ainda não disponível, você conectou com o blockchain?')
 
     let hash
     let cb = (err, txHash) => {
@@ -121,10 +121,10 @@ class App extends Component {
         try {
           await window.ethereum.enable()
         } catch (e) {
-          return alertify.error('Conexão MetaMask request rejeitada!')
+          return alertify.error('Conexão com o blockchain request rejeitada!')
         }
       } else if (typeof window.web3 === 'undefined') {
-        return alertify.error('Por favor instale o MetaMask para utilizar este Dapp!')      
+        return alertify.error('Por favor conecte ao blockchain para utilizar este App!')      
       }
 
       window.web3 = new window.Web3(window.web3.currentProvider)
