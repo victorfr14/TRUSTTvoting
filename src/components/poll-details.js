@@ -150,7 +150,7 @@ export default class PollDetails extends React.Component {
 
 				<p>{poll.description}</p>
 				<hr />
-					ACABOU: <strong>{Date.now()/1e3 > Number(poll.endsOnUnix)? 
+					Finalizada: <strong>{Date.now()/1e3 > Number(poll.endsOnUnix)? 
 						"SIM" : "NÃO"}</strong><br />
 					Acaba em: <strong>{poll.endsOn}</strong><br />
 					Total de Votos: <strong>{poll.totalVotes}</strong><br />
