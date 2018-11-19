@@ -1,4 +1,4 @@
 window.config = {
-	contract_address: '0x3245a1b64bdb2751c99fc9aa16aa1892d760d9ac',
+	contract_address: '0x1755b6cDcca36df52a727970d382812d7aa22E86',
 	chain_id: 4,
 }
